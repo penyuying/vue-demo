@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "vue-touch@git://github.com/vuejs/vue-touch.git",
+        "scope": null,
+        "escapedName": "vue-touch",
+        "name": "vue-touch",
+        "rawSpec": "git://github.com/vuejs/vue-touch.git",
+        "spec": "git://github.com/vuejs/vue-touch.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:vuejs/vue-touch.git",
+          "sshUrl": "git+ssh://git@github.com/vuejs/vue-touch.git",
+          "httpsUrl": "git+https://github.com/vuejs/vue-touch.git",
+          "gitUrl": "git://github.com/vuejs/vue-touch.git",
+          "shortcut": "github:vuejs/vue-touch",
+          "directUrl": "https://raw.githubusercontent.com/vuejs/vue-touch/master/package.json"
+        }
+      },
+      "E:\\vuejs\\vue-demo"
+    ]
+  ],
+  "_from": "git://github.com/vuejs/vue-touch.git",
+  "_id": "vue-touch@1.1.0",
+  "_inCache": true,
+  "_location": "/vue-touch",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "vue-touch@git://github.com/vuejs/vue-touch.git",
+    "scope": null,
+    "escapedName": "vue-touch",
+    "name": "vue-touch",
+    "rawSpec": "git://github.com/vuejs/vue-touch.git",
+    "spec": "git://github.com/vuejs/vue-touch.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:vuejs/vue-touch.git",
+      "sshUrl": "git+ssh://git@github.com/vuejs/vue-touch.git",
+      "httpsUrl": "git+https://github.com/vuejs/vue-touch.git",
+      "gitUrl": "git://github.com/vuejs/vue-touch.git",
+      "shortcut": "github:vuejs/vue-touch",
+      "directUrl": "https://raw.githubusercontent.com/vuejs/vue-touch/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git://github.com/vuejs/vue-touch.git#fa863d28cc35f2c82f5e28699768f1781aabca80",
+  "_shasum": "9ae1d061f39c473b4601a32f33b6dd022933f8cc",
+  "_shrinkwrap": null,
+  "_spec": "vue-touch@git://github.com/vuejs/vue-touch.git",
+  "_where": "E:\\vuejs\\vue-demo",
+  "bugs": {
+    "url": "https://github.com/vuejs/vue-touch/issues"
+  },
+  "dependencies": {
+    "hammerjs": "^2.0.6"
+  },
+  "description": "Hammer.js based touch events plugin for Vue.js",
+  "devDependencies": {
+    "uglify-js": "^2.6.2",
+    "vue": "^1.0.16",
+    "webpack": "^1.12.12"
+  },
+  "files": [
+    "vue-touch.js"
+  ],
+  "gitHead": "fa863d28cc35f2c82f5e28699768f1781aabca80",
+  "homepage": "https://github.com/vuejs/vue-touch#readme",
+  "license": "MIT",
+  "main": "vue-touch.js",
+  "name": "vue-touch",
+  "optionalDependencies": {},
+  "readme": "# vue-touch\n\n> Touch events plugin for Vue.js. **This plugin does not support Vue 2.0 yet.**\n\nThis is a directive wrapper for Hammer.js 2.0.\n\n## Install\n\n> This branch is only compatible with Vue 1.0. For the Vue 2.0 compatible rewrite, see the `next` branch\n\n#### CommonJS\n\n- Available through npm as `vue-touch`.\n\n  ``` js\n  var VueTouch = require('vue-touch')\n  Vue.use(VueTouch)\n  ```\n\n#### Direct include\n\n- You can also directly include it with a `<script>` tag when you have Vue and Hammer.js already included globally. It will automatically install itself, and will add a global `VueTouch`.\n\n## Usage\n\n#### Using the `v-touch` directive\n\n``` html\n<a v-touch:tap=\"onTap\">Tap me!</a>\n\n<div v-touch:swipeleft=\"onSwipeLeft\">Swipe me!</div>\n```\n\n#### Configuring Recognizer Options\n\nThere are two ways to customize recognizer options such as `direction` and `threshold`. The first one is setting global options:\n\n``` js\n// change the threshold for all swipe recognizers\nVueTouch.config.swipe = {\n  threshold: 200\n}\n```\n\nOr, you can use the `v-touch-options` directive to configure the behavior on a specific element:\n\n``` html\n<!-- detect only horizontal pans with a threshold of 100 -->\n<a\n  v-touch:pan=\"onPan\"\n  v-touch-options:pan=\"{ direction: 'horizontal', threshold: 100 }\">\n</a>\n```\n\n#### Registering Custom Events\n\n``` js\n// example registering a custom doubletap event.\n// the `type` indicates the base recognizer to use from Hammer\n// all other options are Hammer recognizer options.\nVueTouch.registerCustomEvent('doubletap', {\n  type: 'tap',\n  taps: 2\n})\n```\n``` html\n<a v-touch:doubletap=\"onDoubleTap\"></a>\n```\n\nSee [Hammer.js documentation](http://hammerjs.github.io/getting-started/) for all available events.\n\nSee `/example` for a multi-event demo. To build it, run `npm install && npm run build`.\n\n## License\n\n[MIT](http://opensource.org/licenses/MIT)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuejs/vue-touch.git"
+  },
+  "scripts": {
+    "build": "webpack example/example.js example/example.build.js && uglifyjs vue-touch.js -c -m > vue-touch.min.js",
+    "dev": "webpack --watch example/example.js example/example.build.js"
+  },
+  "version": "1.1.0"
+}

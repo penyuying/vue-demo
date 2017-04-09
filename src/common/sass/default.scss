@@ -1,0 +1,35 @@
+@import 'fontIcon', 'mixin', 'base';
+@include fontIcon();
+@include base_border();
+.bounceInLeft-enter-active, .bounceInLeft-leave-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translate3d(0, 0, 0);
+    transition: transform .3s;
+    overflow: hidden;
+    &.bounceInLeft-enter {
+        transform: translate3d(100%, 0, 0);
+    }
+    &.bounceInLeft-leave-to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.bounceInRight-enter-active, .bounceInRight-leave-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translate3d(0, 0, 0);
+    transition: transform .3s;
+    &.bounceInRight-enter {
+        transform: translate3d(-100%, 0, 0);
+    }
+    &.bounceInRight-leave-to {
+        transform: translate3d(100%, 0, 0);
+    }
+}

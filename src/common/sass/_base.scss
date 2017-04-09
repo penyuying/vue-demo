@@ -1,0 +1,35 @@
+@mixin base_border() {
+    .border-bottom-1px {
+        color: #000;
+        @include border-bottom1px(rgba(7, 17, 27, 0.1));
+    }
+    @media (min-device-pixel-ratio:1.5) {
+        .border-bottom-1px {
+            &:after {
+                transform: scaleY(0.7);
+            }
+        }
+    }
+    @media (min-device-pixel-ratio:2) {
+        .border-bottom-1px {
+            &:after {
+                transform: scaleY(0.5);
+            }
+        }
+    }
+}
+
+@mixin supportsIcon($w, $l, $urlpix:"../../common/sass/img/") {
+    $icon: decrease discount special invoice guarantee !default;
+    vertical-align: top;
+    display: inline-block;
+    width: $w;
+    height: $w;
+    background-size: $w $w;
+    // @include bgImgPng('decrease_#{$l}', $urlpix);
+    @each $item in $icon {
+        &.#{$item} {
+            @include bgImgPng(#{$item}_#{$l}, $urlpix);
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@import "fontIcon";
+@mixin border-bottom1px($color) {
+    position: relative;
+    &:after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        left: 0px;
+        border-bottom: 1px solid $color;
+        content: '\20';
+    }
+}
+
+@mixin after() {
+    &:after {
+        content: '\20';
+        display: block;
+        height: 0px;
+        width: 0px;
+        clear: both;
+        margin-top: -5px;
+        visibility: hidden;
+    }
+}
+
+@mixin bgImgPng($url, $urlpix: "../../common/sass/img/") {
+    background-image: url($urlpix+$url+"@2x.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    @media(min-device-pixel-ratio: 3) {
+        background-image: url($urlpix+$url+"@3x.png");
+    }
+}
+
+@mixin setFont($id) {
+    @extend %fontIcon;
+    content: '#{$id}';
+}
